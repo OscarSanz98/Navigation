@@ -3,11 +3,15 @@ import { View, Text, StyleSheet, Button} from 'react-native';
 
 const CategoriesScreen = props => {
 
-    console.log(props);
+    // console.log(props);
 
     //push category meals screen onto Stack
     const pushToCategoryMealsScreen = () => {
         props.navigation.navigate({routeName: 'CategoryMeals'});
+        //push will always push the screen onto the stack, whereas navigate might not
+        // props.navigation.push('CategoryMeals');
+        //replace() replaces the root screen in the stack with a new one, this would be useful for logging in a user
+        // props.navigation.replace({routeName: 'CategoryMeals'});
     };
 
     return (

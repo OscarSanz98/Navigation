@@ -14,6 +14,11 @@ const CategoryMealsScreen = props => {
         <View style ={styles.screen}>
             <Text>The Category Meal Screen!</Text>
             <Button title="Go to Details" onPress={pushToMealDetailsScreen} />
+            <Button title ="Go Back" onPress={() => {
+                // props.navigation.goBack();
+                //pop can only be used in a stack navigator, whereas goBack can be used in other types of navigators
+                props.navigation.pop();
+            }}/>
         </View>
     )
 }
