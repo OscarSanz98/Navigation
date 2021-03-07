@@ -6,8 +6,12 @@ import { CATEGORIES, MEALS } from '../data/dummy-data';
 const CategoryMealsScreen = props => {
 
     //function to render the Flatlist items 
-    const RenderFlatList = () => {
-        
+    const renderMealItem = itemData => {
+        return (
+            <View>
+                <Text>{itemData.item.title}</Text>
+            </View>
+        );
     };
 
     //getParam() allows you to get any parameters passed to this screen through the navigation.
@@ -32,7 +36,7 @@ const CategoryMealsScreen = props => {
                 //pop can only be used in a stack navigator, whereas goBack can be used in other types of navigators
                 props.navigation.pop();
             }}/> */}
-            <FlatList data={displayedMeals} key={(item) => item.id} renderItem={() => {}} />
+            <FlatList data={displayedMeals} key={(item) => item.id} renderItem={renderMealItem} />
 
         </View>
     );
