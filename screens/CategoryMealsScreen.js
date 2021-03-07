@@ -6,7 +6,9 @@ import { CATEGORIES, MEALS } from '../data/dummy-data';
 const CategoryMealsScreen = props => {
 
     //function to render the Flatlist items 
-    
+    const RenderFlatList = () => {
+        
+    };
 
     //getParam() allows you to get any parameters passed to this screen through the navigation.
     const categoryID = props.navigation.getParam('categoryId');
