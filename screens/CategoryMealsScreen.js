@@ -2,15 +2,25 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList  } from 'react-native';
 
 import { CATEGORIES, MEALS } from '../data/dummy-data';
+import MealItem from '../components/MealItem';
 
 const CategoryMealsScreen = props => {
 
     //function to render the Flatlist items 
     const renderMealItem = itemData => {
         return (
-            <View>
-                <Text>{itemData.item.title}</Text>
-            </View>
+            <MealItem 
+                title={itemData.item.title} 
+                duration ={itemData.item.duration}
+                complexity={itemData.item.complexity}
+                affordability={itemData.item.affordability} 
+                image={itemData.item.imageUrl}   
+                onSelectMeal ={() => {
+                    props.navigation.navigate({routeName: 'MealDetail', params: {
+                        mealId: itemData.item.id
+                    }})
+                }} 
+            />
         );
     };
 
@@ -36,7 +46,12 @@ const CategoryMealsScreen = props => {
                 //pop can only be used in a stack navigator, whereas goBack can be used in other types of navigators
                 props.navigation.pop();
             }}/> */}
-            <FlatList data={displayedMeals} key={(item) => item.id} renderItem={renderMealItem} />
+            <FlatList 
+                data={displayedMeals} 
+                key={(item) => item.id} 
+                renderItem={renderMealItem}  
+                style={{width: '95%'}}
+            />
 
         </View>
     );
