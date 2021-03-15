@@ -20,6 +20,7 @@ const MealDetailScreen = props => {
           props.navigation.popToTop();
         }}
       />
+      <Button title="options" />
     </View>
   );
 };
